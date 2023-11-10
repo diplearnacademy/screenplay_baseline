@@ -2,7 +2,7 @@ package co.dpacademy.question;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import static co.dpacademy.userinterface.ProductoPage.*;
+import static co.dpacademy.userinterface.saucedemo.ProductoPage.*;
 
 public class AutenticacionEcommerce implements Question<Boolean> {
 

@@ -1,26 +1,18 @@
 package co.dpacademy.stepdefinitions;
 
-import co.dpacademy.interactions.Abrir;
+import co.dpacademy.interactions.saucedemo.Abrir;
 import co.dpacademy.question.AutenticacionEcommerce;
-import co.dpacademy.tasks.Autenticacion;
-import co.dpacademy.userinterface.LoginPage;
-import cucumber.api.java.Before;
+import co.dpacademy.tasks.saucedemo.Autenticacion;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.actors.OnStage;
-import net.serenitybdd.screenplay.actors.OnlineCast;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class LoginSauceDemoStepDefinition {
 
-    @Before
-    public void prepareStage() {
-        OnStage.setTheStage(new OnlineCast());
-    }
 
     @Dado("que {word} se encuentra en la pagina")
     public void queBryanSeEncuentraEnLaPagina(String nombre) {

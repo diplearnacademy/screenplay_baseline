@@ -1,6 +1,6 @@
-package co.dpacademy.interactions;
+package co.dpacademy.interactions.saucedemo;
 
-import co.dpacademy.userinterface.LoginPage;
+import co.dpacademy.userinterface.saucedemo.LoginPage;
 import net.serenitybdd.screenplay.*;
 import net.serenitybdd.screenplay.actions.Open;
 

@@ -1,4 +1,4 @@
-package co.dpacademy.tasks;
+package co.dpacademy.tasks.saucedemo;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -7,7 +7,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.type.Type;
 
-import static co.dpacademy.userinterface.LoginPage.*;
+import static co.dpacademy.userinterface.saucedemo.LoginPage.*;
 
 public class Autenticacion implements Task {
     @Override

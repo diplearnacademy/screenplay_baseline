@@ -1,6 +1,6 @@
 #language:es
 
-  Característica: LOgin en Sauncedemo
+  Característica: Login en Sauncedemo
     yo como usuario de Saucedemo
   Quiero autenticarme
   para ver los productos de la pagina
