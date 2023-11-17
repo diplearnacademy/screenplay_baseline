@@ -30,6 +30,13 @@ public class UserBuilder implements Builder<User> {
         return this;
     }
 
+    public UserBuilder conUsuarioExitoso(String username) {
+        this.username = username;
+        this.password = "secret_sauce";
+        return this;
+    }
+
+
 /*
     public UserBuilder usandoSuClave() {
         this.password = "secret_sauce";

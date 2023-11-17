@@ -1,5 +1,6 @@
 package co.dpacademy.stepdefinitions;
 
+import co.dpacademy.exceptions.TituloHomeNoEsVisibleException;
 import co.dpacademy.interactions.saucedemo.Abrir;
 import co.dpacademy.question.AutenticacionEcommerce;
 import co.dpacademy.tasks.saucedemo.Autenticacion;
@@ -11,6 +12,7 @@ import io.cucumber.datatable.DataTable;
 import java.util.List;
 import java.util.Map;
 
+import static co.dpacademy.exceptions.TituloHomeNoEsVisibleException.MENSAJE_EXCEPCION_TITULO_NO_VISIBLE;
 import static co.dpacademy.models.builders.UserBuilder.con;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
@@ -30,7 +32,11 @@ public class LoginSauceDemoStepDefinition {
 
     @Cuando("el ingresa sus credenciales de usuario habilitado")
     public void elIngresaSusCredencialesHabilitado() {
-        theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo(con().usuarioHabilitado()));
+        theActorInTheSpotlight()
+                .attemptsTo(
+                        Autenticacion.enSaucedemo(
+                                con()
+                                        .usuarioHabilitado()));
     }
 
     @Cuando("el ingresa sus credenciales de usuario bloqueado")
@@ -40,9 +46,11 @@ public class LoginSauceDemoStepDefinition {
 
     @Cuando("el ingresa sus credenciales")
     public void elIngresaSusCredenciales(List<Map<String, String>> credentials) {
-        //theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo());
-        System.out.println(credentials.get(0).get("username"));
-        System.out.println(credentials.get(0).get("password"));
+        theActorInTheSpotlight()
+                .attemptsTo(
+                        Autenticacion.enSaucedemo(
+                                con()
+                                        .conUsuarioExitoso(credentials.get(0).get("username"))));
     }
 
     @Cuando("el ingresa sus credenciales de usuario con errores")
@@ -52,6 +60,10 @@ public class LoginSauceDemoStepDefinition {
 
     @Entonces("el usuario deberia ingresar a la pagina {word}")
     public void elUsuarioDeberiaIngresarALaPaginaProductos(String nombrePagina) {
-       theActorInTheSpotlight().should(seeThat(AutenticacionEcommerce.esExitosa(nombrePagina)));
+       theActorInTheSpotlight()
+               .should(seeThat(
+                       AutenticacionEcommerce.esExitosa(nombrePagina))
+                       .orComplainWith(TituloHomeNoEsVisibleException.class, MENSAJE_EXCEPCION_TITULO_NO_VISIBLE)
+               );
     }
 }

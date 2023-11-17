@@ -5,6 +5,18 @@ Característica: Login en Sauncedemo
   Quiero autenticarme
   para ver los productos de la pagina
 
+  Escenario: Login con usuario bloqueado
+    Dado que Bryan se encuentra en la pagina
+    Cuando el ingresa sus credenciales de usuario bloqueado
+    Entonces  el usuario deberia ingresar a la pagina products
+
+  Escenario: Login con usuario con errores
+    Dado que Bryan se encuentra en la pagina
+    Cuando el ingresa sus credenciales de usuario con errores
+    Entonces  el usuario deberia ingresar a la pagina products
+
+
+
   Esquema del escenario: Login con usuario con errores
     Dado que Bryan se encuentra en la pagina
     Cuando el ingresa sus credenciales
@@ -22,14 +34,8 @@ Característica: Login en Sauncedemo
     Cuando el ingresa sus credenciales de usuario habilitado
     Entonces  el usuario deberia ingresar a la pagina products
 
-  Escenario: Login con usuario bloqueado
-    Dado que Bryan se encuentra en la pagina
-    Cuando el ingresa sus credenciales de usuario bloqueado
-    Entonces  el usuario deberia ingresar a la pagina products
 
-  Escenario: Login con usuario con errores
-    Dado que Bryan se encuentra en la pagina
-    Cuando el ingresa sus credenciales de usuario con errores
-    Entonces  el usuario deberia ingresar a la pagina products
+
+
 
 
