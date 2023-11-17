@@ -6,7 +6,12 @@ import co.dpacademy.tasks.saucedemo.Autenticacion;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
+import io.cucumber.datatable.DataTable;
 
+import java.util.List;
+import java.util.Map;
+
+import static co.dpacademy.models.builders.UserBuilder.con;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 import static net.serenitybdd.screenplay.actors.OnStage.*;
@@ -23,9 +28,26 @@ public class LoginSauceDemoStepDefinition {
        // theActorCalled(nombre).wasAbleTo(Open.browserOn().the(LoginPage.class));
     }
 
+    @Cuando("el ingresa sus credenciales de usuario habilitado")
+    public void elIngresaSusCredencialesHabilitado() {
+        theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo(con().usuarioHabilitado()));
+    }
+
+    @Cuando("el ingresa sus credenciales de usuario bloqueado")
+    public void elIngresaSusCredencialesBloqueado() {
+        theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo(con().usuarioBloqueado()));
+    }
+
     @Cuando("el ingresa sus credenciales")
-    public void elIngresaSusCredenciales() {
-        theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo());
+    public void elIngresaSusCredenciales(List<Map<String, String>> credentials) {
+        //theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo());
+        System.out.println(credentials.get(0).get("username"));
+        System.out.println(credentials.get(0).get("password"));
+    }
+
+    @Cuando("el ingresa sus credenciales de usuario con errores")
+    public void elIngresaSusCredencialesError() {
+        theActorInTheSpotlight().attemptsTo(Autenticacion.enSaucedemo(con().usuarioConError()));
     }
 
     @Entonces("el usuario deberia ingresar a la pagina {word}")
